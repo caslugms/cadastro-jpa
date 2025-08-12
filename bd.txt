@@ -1,0 +1,15 @@
+CREATE DATABASE aulaPOO;
+USE aulaPOO;
+
+SELECT * FROM Pessoa;
+SELECT * FROM Documento;
+
+SELECT 
+    p.id AS pessoa_id,
+    p.nome AS pessoa_nome,
+    t.id AS telefone_id,
+    t.numero AS telefone_numero
+FROM 
+    Pessoa p
+INNER JOIN 
+    Telefone t ON p.id = t.pessoa_id;
