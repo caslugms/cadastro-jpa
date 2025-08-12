@@ -6,14 +6,19 @@ import jakarta.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {
-        Pessoa pessoa1 = new Pessoa();
-        pessoa1.setNome("Lucas");
+        Documento documento = new Documento();
+        documento.setEmissor("ssp");
+        documento.setTipo("rg");
+
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome("Fulano de Tal");
+        pessoa.setDocumento(documento);
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("meuPU");
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
-        em.persist(pessoa1); 
+        em.persist(pessoa);
         em.getTransaction().commit();
 
         em.close();
